@@ -87,7 +87,30 @@ def fetch_and_write_csv_data(folder_name, filename, url):
 # EXCEL #
 ########################################################################################
 
-# Define function to write data to an excel file
+# Write data to an excel file
+
+def write_excel_data(folder_name, filename, data):
+    '''Write data to an excel file.'''
+    file_path = pathlib.Path(folder_name).joinpath(filename)
+    try:
+        # Try opening the file and writing the data
+        data.to_excel(file_path)
+        logging.info(f'Data written to {file_path}') # Log the success
+    except Exception as e:
+        # Log the error
+        logging.error(f'Error writing data to {file_path}: {e}')
+
+# Fetch data from url and write to an excel file
+
+def fetch_and_write_excel_data(folder_name, filename, url):
+    response = requests.get(url)
+    if response.status_code == 200:
+        # Call your write function to save the response content
+        write_excel_data(folder_name, filename, response.text)
+        return response.text
+    else:
+        print(f"Failed to fetch data: {response.status_code}")
+        return None
 
 ########################################################################################
 # JSON #
