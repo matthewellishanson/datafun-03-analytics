@@ -15,6 +15,10 @@ import csv
 import utils_matthanson as utils
 import Hanson_project_setup as HanPS
 
+
+# Set up logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
 ########################################################################################
 # Define functions for fetching and writing data from online sources to text files, csv files, excel files and JSON files.
 ########################################################################################
@@ -50,6 +54,35 @@ def fetch_and_write_txt_data(folder_name, filename, url):
     else:
         print(f"Failed to fetch data: {response.status_code}")
         return None
+
+# Process text data
+
+def process_txt_data(folder_name, input_filename, output_filename):
+    '''Process text data.'''
+    # Read the data from the input file
+    file_path = pathlib.Path(folder_name).joinpath(input_filename)
+    
+    try:
+        # Try opening the file and reading the data
+        with open(file_path, 'r', encoding='utf-8') as file:
+            text = file.read()
+    except Exception as e:
+        # Log the error
+        logging.error(f'Error reading data from {file_path}: {e}')
+        return
+    
+    try:
+        # Try processing the data
+        # For example, count the number of words
+        words = text.split()
+        num_words = len(words)
+        unique_words = set(words)
+        logging.info(f'Number of words: {num_words}')
+        logging.info(f'Number of unique words: {len(unique_words)}')
+    except Exception as e:
+        # Log the error
+        logging.error(f'Error processing data: {e}')
+        return
 
 ########################################################################################
 # CSV #
