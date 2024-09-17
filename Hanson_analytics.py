@@ -38,7 +38,7 @@ def write_txt_data(folder_name, filename, data):
         with open(file_path, 'w', encoding='utf-8') as file:
             file.write(data)
         logging.info(f'Data written to {file_path}') # Log the success
-    except Exception as e:
+    except IOError as e:
         # Log the error
         logging.error(f'Error writing data to {file_path}: {e}')
 
@@ -55,7 +55,7 @@ def fetch_and_write_txt_data(folder_name, filename, url):
         print(f"Failed to fetch data: {response.status_code}")
         return None
 
-# Process text data
+# Process text data: count words and unique words and save to file.
 
 def process_txt_data(folder_name, input_filename, output_filename):
     '''Process text data.'''
@@ -66,20 +66,28 @@ def process_txt_data(folder_name, input_filename, output_filename):
         # Try opening the file and reading the data
         with open(file_path, 'r', encoding='utf-8') as file:
             text = file.read()
-    except Exception as e:
+    except IOError as e:
         # Log the error
         logging.error(f'Error reading data from {file_path}: {e}')
         return
     
     try:
         # Try processing the data
-        # For example, count the number of words
+        # For example, count the number of words and unique words
         words = text.split()
         num_words = len(words)
         unique_words = set(words)
         logging.info(f'Number of words: {num_words}')
         logging.info(f'Number of unique words: {len(unique_words)}')
-    except Exception as e:
+
+        # Write the processed data to the output file
+        output_path = pathlib.Path(folder_name).joinpath(output_filename)
+        with open(output_path, 'w', encoding='utf-8') as output_file:
+            output_file.write(f'Number of words: {num_words}\n')
+            output_file.write(f'Number of unique words: {len(unique_words)}\n')
+        logging.info(f'Processed data written to {output_path}')
+
+    except IOError as e:
         # Log the error
         logging.error(f'Error processing data: {e}')
         return
@@ -99,7 +107,7 @@ def write_csv_data(folder_name, filename, data):
             writer = csv.writer(file)
             writer.writerows(data)
         logging.info(f'Data written to {file_path}') # Log the success
-    except Exception as e:
+    except IOError as e:
         # Log the error
         logging.error(f'Error writing data to {file_path}: {e}')
 
@@ -116,6 +124,43 @@ def fetch_and_write_csv_data(folder_name, filename, url):
         print(f"Failed to fetch data: {response.status_code}")
         return None
 
+# Process csv data: count rows and columns and save to file.
+
+def process_csv_data(folder_name, input_filename, output_filename):
+    '''Process csv data.'''
+    # Read the data from the input file
+    file_path = pathlib.Path(folder_name).joinpath(input_filename)
+    
+    try:
+        # Try opening the file and reading the data
+        with open(file_path, 'r', encoding='utf-8') as file:
+            reader = csv.reader(file)
+            data = list(reader)
+    except IOError as e:
+        # Log the error
+        logging.error(f'Error reading data from {file_path}: {e}')
+        return
+    
+    try:
+        # Try processing the data
+        num_rows = len(data)
+        num_columns = len(data[0])
+        logging.info(f'Number of rows: {num_rows}')
+        logging.info(f'Number of columns: {num_columns}')
+
+        # Write the processed data to the output file
+        output_path = pathlib.Path(folder_name).joinpath(output_filename)
+        with open(output_path, 'w', encoding='utf-8') as output_file:
+            output_file.write(f'Number of rows: {num_rows}\n')
+            output_file.write(f'Number of columns: {num_columns}\n')
+        logging.info(f'Processed data written to {output_path}')
+
+    except IOError as e:
+        # Log the error
+        logging.error(f'Error processing data: {e}')
+        return
+
+
 ########################################################################################
 # EXCEL #
 ########################################################################################
@@ -129,7 +174,7 @@ def write_excel_data(folder_name, filename, data):
         # Try opening the file and writing the data
         data.to_excel(file_path)
         logging.info(f'Data written to {file_path}') # Log the success
-    except Exception as e:
+    except IOError as e:
         # Log the error
         logging.error(f'Error writing data to {file_path}: {e}')
 
@@ -144,12 +189,117 @@ def fetch_and_write_excel_data(folder_name, filename, url):
     else:
         print(f"Failed to fetch data: {response.status_code}")
         return None
+    
+# Process excel data: count rows and columns and save to file. 
+
+def process_excel_data(folder_name, input_filename, output_filename):
+    '''Process excel data.'''
+    # Read the data from the input file
+    file_path = pathlib.Path(folder_name).joinpath(input_filename)
+    
+    try:
+        # Try opening the file and reading the data
+        df = pd.read_excel(file_path)
+        # Try processing the data with basic analysis
+        num_rows = len(df)
+        num_columns = len(df.columns)
+        logging.info(f'Number of rows: {num_rows}')
+        logging.info(f'Number of columns: {num_columns}')
+
+        # Write the processed data to the output file
+        output_path = pathlib.Path(folder_name).joinpath(output_filename)
+        with open(output_path, 'w', encoding='utf-8') as output_file:
+            output_file.write(f'Number of rows: {num_rows}\n')
+            output_file.write(f'Number of columns: {num_columns}\n')
+        logging.info(f'Processed data written to {output_path}')
+
+    except IOError as e:
+        # Log the error
+        logging.error(f'Error processing data: {e}')
+        return
 
 ########################################################################################
 # JSON #
 ########################################################################################
 
 # Define function to write data to a JSON file
+def write_json_data(folder_name, filename, data):
+    '''Write data to a JSON file.'''
+    file_path = pathlib.Path(folder_name).joinpath(filename)
+    try:
+        # Try opening the file and writing the data
+        with open(file_path, 'w', encoding='utf-8') as file:
+            json.dump(data, file, indent=4)
+        logging.info(f'Data written to {file_path}') # Log the success
+    
+    except IOError as e:
+        # Log the error
+        logging.error(f'Error writing data to {file_path}: {e}')
+
+# Fetch data from url and write to a JSON file
+def fetch_and_write_json_data(folder_name, filename, url):
+    try:
+        response = requests.get(url)
+        response.raise_for_status() # Raise an exception for errors
+        if response.headers['Content-Type'] == 'application/json':
+            json_data = response.json()
+            write_json_data(folder_name, filename, data)
+            return json_data
+        else:
+            logging.error(f'Error: Content type is not JSON')
+            return None
+    
+    except requests.RequestException as e:
+        logging.error(f'Error fetching JSON data from {url}: {e}')
 
 
-# Process and analyze data
+# Process JSON data: extract and analyze data and save to file.
+def process_json_data(folder_name, input_filename, output_filename):
+    '''Process JSON data.'''
+    # Read the data from the input file
+    file_path = pathlib.Path(folder_name).joinpath(input_filename)
+    
+    try:
+        # Try opening the file and reading the data
+        with open(file_path, 'r', encoding='utf-8') as file:
+            json_data = json.load(file)
+    except IOError as e:
+        # Log the error
+        logging.error(f'Error reading data from {file_path}: {e}')
+        return
+    
+    try:
+        # Try processing the data
+        # For example, extract and analyze data
+        # Here, we extract and analyze the data from a JSON file
+        # and save the results to an output file
+        # Extract data from JSON
+        data = json_data['data']
+        values = [item['value'] for item in data]
+        # Analyze data
+        mean_value = np.mean(values)
+        max_value = np.max(values)
+        min_value = np.min(values)
+        # Save the results to the output file
+        output_path = pathlib.Path(folder_name).joinpath(output_filename)
+        with open(output_path, 'w', encoding='utf-8') as output_file:
+            output_file.write(f'Mean value: {mean_value}\n')
+            output_file.write(f'Max value: {max_value}\n')
+            output_file.write(f'Min value: {min_value}\n')
+        logging.info(f'Processed data written to {output_path}')
+
+    except IOError as e:
+        # Log the error
+        logging.error(f'Error processing data: {e}')
+        return
+
+########################################################################################
+# Main function #
+########################################################################################
+
+def main():
+    
+    # print byline from imported module
+    print(HanPS.byline)
+
+    
