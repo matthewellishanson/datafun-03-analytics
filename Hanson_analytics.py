@@ -304,55 +304,50 @@ def main():
     print(utils.byline)
 
     # URLs to fetch datasets from, and nba_api to fetch JSON data
-    datasets = {
-        'kanye_lyrics_txt': ('txt', 'https://www.kaggle.com/datasets/paultimothymooney/poetry?select=Kanye_West.txt'),
-        'climate_change_csv': ('csv', 'https://www.kaggle.com/datasets/waqi786/climate-change-impact-on-agriculture/data'),
-        'world_cup_excel': ('excel', 'https://www.kaggle.com/datasets/rhugvedbhojane/fifa-world-cup-2022-players-statistics?select=FIFA+WC+2022+Players+Stats+.xlsx'),
-        'nba_json': ('json', playercareerstats.PlayerCareerStats(player_id=203999).get_json())
-    }
+    
+    txt_url = 'https://www.kaggle.com/datasets/paultimothymooney/poetry?select=Kanye_West.txt'
+    csv_url = 'https://www.kaggle.com/datasets/waqi786/climate-change-impact-on-agriculture/data'
+    excel_url = 'https://www.kaggle.com/datasets/rhugvedbhojane/fifa-world-cup-2022-players-statistics?select=FIFA+WC+2022+Players+Stats+.xlsx'
+    nba_json = playercareerstats.PlayerCareerStats(player_id=203999).get_json()
 
-    # Folder names for storing data
-    folder_names = {
-        'txt': 'txt_data',
-        'csv': 'csv_data',
-        'excel': 'excel_data',
-        'json': 'json_data'
-    }
+    # Define the prefix for the folders
+    prefix = 'data-'
 
-    # File names for data
-    filenames = {
-        'kanye_lyrics_txt': 'kanye_lyrics.txt',
-        'climate_change_csv': 'climate_change.csv',
-        'world_cup_excel': 'world_cup.xlsx',
-        'nba_json': 'nba.json'
-    }
+    # Define the folder names for each data type
+    folder_names = ['txt', 'csv', 'excel', 'json']
 
-    # Create folders using Hanson_project_setup module
-    result = HanPS.create_prefixed_folders(folder_names.values(), 'format-')
+    # Create folders using the prefixed naming
+    result = HanPS.create_prefixed_folders(folder_names, prefix)
     print(result)
     
     # Define the base directory relative to the script's location
     base_dir = pathlib.Path(__file__).parent.joinpath('data')
 
-    # Full paths for each folder
-    full_paths = {key: base_dir.joinpath(folder) for key, folder in folder_names.items()}
+    # Define the filenames for each dataset
+    txt_filename = 'kanye_lyrics.txt'
+    csv_filename = 'climate_change.csv'
+    excel_filename = 'world_cup.xlsx'
+    json_filename = 'nba_data.json'
+    
+    # Define full paths for each folder
+    txt_folder = pathlib.Path(base_dir).joinpath(f'{prefix}txt')
+    csv_folder = pathlib.Path(base_dir).joinpath(f'{prefix}csv')
+    excel_folder = pathlib.Path(base_dir).joinpath(f'{prefix}excel')
+    json_folder = pathlib.Path(base_dir).joinpath(f'{prefix}json')
 
-    # Fetch and write data for each dataset
-    for key, (data_type, url) in datasets.items():
-        folder_name = full_paths[data_type]
-        filename = filenames[key]
-        if data_type == 'txt':
-            fetch_and_write_txt_data(folder_name, filename, url)
-            process_txt_data(folder_name, filename, 'processed_' + filename)
-        elif data_type == 'csv':
-            fetch_and_write_csv_data(folder_name, filename, url)
-            process_csv_data(folder_name, filename, 'processed_' + filename)
-        elif data_type == 'excel':
-            fetch_and_write_excel_data(folder_name, filename, url)
-            process_excel_data(folder_name, filename, 'processed_' + filename)
-        elif data_type == 'json':
-            fetch_and_write_json_data(folder_name, filename, url)
-            process_json_data(folder_name, filename, 'processed_' + filename)
+    # Fetch and write data to files
+    fetch_and_write_txt_data(txt_folder, txt_filename, txt_url)
+    fetch_and_write_csv_data(csv_folder, csv_filename, csv_url)
+    fetch_and_write_excel_data(excel_folder, excel_filename, excel_url)
+    fetch_and_write_json_data(json_folder, json_filename, nba_json)
+
+    # Process the fetched data
+    process_txt_data(txt_folder, txt_filename, 'results_txt.txt')
+    process_csv_data(csv_folder, csv_filename, 'results_csv.txt')
+    process_excel_data(excel_folder, excel_filename, 'results_xls.txt')
+    process_json_data(json_folder, json_filename, 'results_json.txt')
+
+    print("Data fetching and processing complete.")
 
 print("Hanson Analytics: Delivering Actionable Insights and automating data fetching and processing.")
 
