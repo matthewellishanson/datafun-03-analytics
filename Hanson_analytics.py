@@ -6,7 +6,7 @@ import logging
 # External library imports (requires virtual environment)
 import requests
 import pandas as pd
-import matplotlib.pyplot as plt
+from nba_api.stats.endpoints import playercareerstats
 import numpy as np
 import json
 import csv
@@ -302,4 +302,46 @@ def main():
     # print byline from imported module
     print(HanPS.byline)
 
-    
+    # URLs to fetch datasets from, and nba_api to fetch JSON data
+    datasets = {
+        'kanye_lyrics_txt': ('txt', 'https://www.kaggle.com/datasets/paultimothymooney/poetry?select=Kanye_West.txt'),
+        'climate_change_csv': ('csv', 'https://www.kaggle.com/datasets/waqi786/climate-change-impact-on-agriculture/data'),
+        'world_cup_excel': ('excel', 'https://www.kaggle.com/datasets/rhugvedbhojane/fifa-world-cup-2022-players-statistics?select=FIFA+WC+2022+Players+Stats+.xlsx'),
+        'nba_json': ('json', playercareerstats.PlayerCareerStats(player_id=203999).get_json())
+    }
+
+    # Folder names for storing data
+    folder_names = {
+        'txt': 'txt_data',
+        'csv': 'csv_data',
+        'excel': 'excel_data',
+        'json': 'json_data'
+    }
+
+    # File names for data
+    filenames = {
+        'kanye_lyrics_txt': 'kanye_lyrics.txt',
+        'climate_change_csv': 'climate_change.csv',
+        'world_cup_excel': 'world_cup.xlsx',
+        'nba_json': 'nba.json'
+    }
+
+    # Processed datasets based on type
+    for dataset, (data_type, url) in datasets.items():
+        folder_name = folder_names[data_type]
+        filename = filenames[dataset]
+        if data_type == 'txt':
+            fetch_and_write_txt_data(folder_name, filename, url)
+            process_txt_data(folder_name, filename, f'processed_{filename}')
+        elif data_type == 'csv':
+            fetch_and_write_csv_data(folder_name, filename, url)
+            process_csv_data(folder_name, filename, f'processed_{filename}')
+        elif data_type == 'excel':
+            fetch_and_write_excel_data(folder_name, filename, url)
+            process_excel_data(folder_name, filename, f'processed_{filename}')
+        elif data_type == 'json':
+            fetch_and_write_json_data(folder_name, filename, url)
+            process_json_data(folder_name, filename, f'processed_{filename}')
+
+if __name__ == '__main__':
+    main()
