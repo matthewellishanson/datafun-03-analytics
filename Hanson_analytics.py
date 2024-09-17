@@ -300,7 +300,7 @@ def process_json_data(folder_name, input_filename, output_filename):
 def main():
     
     # print byline from imported module
-    print(HanPS.byline)
+    print(utils.byline)
 
     # URLs to fetch datasets from, and nba_api to fetch JSON data
     datasets = {
