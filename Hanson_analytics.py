@@ -10,6 +10,7 @@ from nba_api.stats.endpoints import playercareerstats
 import numpy as np
 import json
 import csv
+import openpyxl
 
 # Local module imports
 import utils_matthanson as utils

@@ -11,13 +11,13 @@
     <meta name="keywords" content="sports,beginner,intermediate" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
   <meta name="theme-color" content="#008ABC" />
-  <script nonce="ZwyB16KJtULOZNoDcssEvg==" type="text/javascript">
-    window["pageRequestStartTime"] = 1726552542616;
-    window["pageRequestEndTime"] = 1726552542683;
+  <script nonce="wm2gCUE6ih&#x2B;KPop&#x2B;XAhz8g==" type="text/javascript">
+    window["pageRequestStartTime"] = 1726552889945;
+    window["pageRequestEndTime"] = 1726552890018;
     window["initialPageLoadStartTime"] = new Date().getTime();
   </script>
-  <script nonce="ZwyB16KJtULOZNoDcssEvg==" id="gsi-client" src="https://accounts.google.com/gsi/client" async defer></script>
-  <script nonce="ZwyB16KJtULOZNoDcssEvg==">window.KAGGLE_JUPYTERLAB_PATH = "/static/jl2-static/jupyterlab-index-de53cf5bbd46ca5e45d1.html";</script>
+  <script nonce="wm2gCUE6ih&#x2B;KPop&#x2B;XAhz8g==" id="gsi-client" src="https://accounts.google.com/gsi/client" async defer></script>
+  <script nonce="wm2gCUE6ih&#x2B;KPop&#x2B;XAhz8g==">window.KAGGLE_JUPYTERLAB_PATH = "/static/jl2-static/jupyterlab-index-de53cf5bbd46ca5e45d1.html";</script>
   <link rel="preconnect" href="https://www.google-analytics.com" crossorigin="anonymous" /><link rel="preconnect" href="https://stats.g.doubleclick.net" /><link rel="preconnect" href="https://storage.googleapis.com" /><link rel="preconnect" href="https://apis.google.com" />
   <link href="/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
   <link rel="manifest" href="/static/json/manifest.json" crossorigin="use-credentials">
@@ -33,7 +33,7 @@
     rel="stylesheet" media="print" id="async-google-font-1" />
   <link href="https://fonts.googleapis.com/css2?family=Google+Symbols:FILL@0..1&display=block"
     rel="stylesheet" media="print" id="async-google-font-2" />
-  <script nonce="ZwyB16KJtULOZNoDcssEvg==" type="text/javascript">
+  <script nonce="wm2gCUE6ih&#x2B;KPop&#x2B;XAhz8g==" type="text/javascript">
     const styleSheetIds = ["async-google-font-1", "async-google-font-2"];
     styleSheetIds.forEach(function (id) {
       document.getElementById(id).addEventListener("load", function() {
@@ -50,7 +50,7 @@
   
     
  
-      <script nonce="ZwyB16KJtULOZNoDcssEvg==">
+      <script nonce="wm2gCUE6ih&#x2B;KPop&#x2B;XAhz8g==">
         try{(function(a,s,y,n,c,h,i,d,e){d=s.createElement("style");
         d.appendChild(s.createTextNode(""));s.head.appendChild(d);d=d.sheet;
         y=y.map(x => d.insertRule(x + "{ opacity: 0 !important }"));
@@ -58,7 +58,7 @@
         (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
         })(window,document,['.site-header-react__nav'],'dataLayer',2000,{'GTM-52LNT9S':true});}catch(ex){}
     </script>
-    <script nonce="ZwyB16KJtULOZNoDcssEvg==">
+    <script nonce="wm2gCUE6ih&#x2B;KPop&#x2B;XAhz8g==">
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
@@ -69,7 +69,7 @@
             'content_group1': 'Datasets'
         });
     </script>
-    <script nonce="ZwyB16KJtULOZNoDcssEvg==" async src="https://www.googletagmanager.com/gtag/js?id=G-T7QHS60L4Q"></script>
+    <script nonce="wm2gCUE6ih&#x2B;KPop&#x2B;XAhz8g==" async src="https://www.googletagmanager.com/gtag/js?id=G-T7QHS60L4Q"></script>
 
   
     
@@ -87,7 +87,7 @@
   <meta name="twitter:site" content="@Kaggle" /> 
   
     
-            <script nonce="ZwyB16KJtULOZNoDcssEvg==" type="application/ld+json">{"@context":"http://schema.org/","@type":"Dataset","name":"FIFA World Cup 2022 Players Statistics ","description":"This dataset contains information about the players who competed in the World Cup. The characteristics range from the number of appearances to the shoe brand they wore. Both the .xlsx and .csv formats are attached. \nThe dataset only includes transfers completed till the 20th of December 2022. The data can be used to analyze player performance or to better understand how brands target specific potential players. It was gathered from reliable websites. \nPlease let me know if any changes are needed or if anything can be improved.\n\n\n\n\n\n\nImage from [FIFA](https://www.fifa.com/about-fifa/commercial/fifa-marketing/brand-protection)\nMajority of data collected from [this](https://footystats.org/) ","url":"https://www.kaggle.com/rhugvedbhojane/fifa-world-cup-2022-players-statistics","version":1,"keywords":["subject, health and fitness, exercise, sports","audience, beginner","audience, intermediate"],"license":{"@type":"CreativeWork","name":"CC BY-NC-SA 4.0","url":"https://creativecommons.org/licenses/by-nc-sa/4.0/"},"identifier":["2845864"],"includedInDataCatalog":{"@type":"DataCatalog","name":"Kaggle","url":"https://www.kaggle.com"},"creator":{"@type":"Person","name":"Rhugved Bhojane","url":"https://www.kaggle.com/rhugvedbhojane","image":"https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png"},"distribution":[{"@type":"DataDownload","requiresSubscription":true,"encodingFormat":"zip","fileFormat":"zip","contentUrl":"https://www.kaggle.com/datasets/rhugvedbhojane/fifa-world-cup-2022-players-statistics/download?datasetVersionNumber=1","contentSize":"100446 bytes"}],"commentCount":0,"dateModified":"2023-01-27T20:27:08.077Z","discussionUrl":"https://www.kaggle.com/rhugvedbhojane/fifa-world-cup-2022-players-statistics/discussion","alternateName":"800+ players, 15+ attributes ","isAccessibleForFree":true,"thumbnailUrl":"https://storage.googleapis.com/kaggle-datasets-images/2845864/4906947/b98fb8215998664558d962578acc15bf/dataset-card.jpg?t=2023-01-27-20-51-23","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"http://schema.org/CommentAction","userInteractionCount":0},{"@type":"InteractionCounter","interactionType":"http://schema.org/DownloadAction","userInteractionCount":2217},{"@type":"InteractionCounter","interactionType":"http://schema.org/ViewAction","userInteractionCount":9367},{"@type":"InteractionCounter","interactionType":"http://schema.org/LikeAction","userInteractionCount":45}]}</script>
+            <script nonce="wm2gCUE6ih+KPop+XAhz8g==" type="application/ld+json">{"@context":"http://schema.org/","@type":"Dataset","name":"FIFA World Cup 2022 Players Statistics ","description":"This dataset contains information about the players who competed in the World Cup. The characteristics range from the number of appearances to the shoe brand they wore. Both the .xlsx and .csv formats are attached. \nThe dataset only includes transfers completed till the 20th of December 2022. The data can be used to analyze player performance or to better understand how brands target specific potential players. It was gathered from reliable websites. \nPlease let me know if any changes are needed or if anything can be improved.\n\n\n\n\n\n\nImage from [FIFA](https://www.fifa.com/about-fifa/commercial/fifa-marketing/brand-protection)\nMajority of data collected from [this](https://footystats.org/) ","url":"https://www.kaggle.com/rhugvedbhojane/fifa-world-cup-2022-players-statistics","version":1,"keywords":["subject, health and fitness, exercise, sports","audience, beginner","audience, intermediate"],"license":{"@type":"CreativeWork","name":"CC BY-NC-SA 4.0","url":"https://creativecommons.org/licenses/by-nc-sa/4.0/"},"identifier":["2845864"],"includedInDataCatalog":{"@type":"DataCatalog","name":"Kaggle","url":"https://www.kaggle.com"},"creator":{"@type":"Person","name":"Rhugved Bhojane","url":"https://www.kaggle.com/rhugvedbhojane","image":"https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png"},"distribution":[{"@type":"DataDownload","requiresSubscription":true,"encodingFormat":"zip","fileFormat":"zip","contentUrl":"https://www.kaggle.com/datasets/rhugvedbhojane/fifa-world-cup-2022-players-statistics/download?datasetVersionNumber=1","contentSize":"100446 bytes"}],"commentCount":0,"dateModified":"2023-01-27T20:27:08.077Z","discussionUrl":"https://www.kaggle.com/rhugvedbhojane/fifa-world-cup-2022-players-statistics/discussion","alternateName":"800+ players, 15+ attributes ","isAccessibleForFree":true,"thumbnailUrl":"https://storage.googleapis.com/kaggle-datasets-images/2845864/4906947/b98fb8215998664558d962578acc15bf/dataset-card.jpg?t=2023-01-27-20-51-23","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"http://schema.org/CommentAction","userInteractionCount":0},{"@type":"InteractionCounter","interactionType":"http://schema.org/DownloadAction","userInteractionCount":2217},{"@type":"InteractionCounter","interactionType":"http://schema.org/ViewAction","userInteractionCount":9367},{"@type":"InteractionCounter","interactionType":"http://schema.org/LikeAction","userInteractionCount":45}]}</script>
         
 
   
@@ -97,14 +97,14 @@
     
 
 
-    <script nonce="ZwyB16KJtULOZNoDcssEvg==">window['useKaggleAnalytics'] = true;</script>
+    <script nonce="wm2gCUE6ih&#x2B;KPop&#x2B;XAhz8g==">window['useKaggleAnalytics'] = true;</script>
 
-  <script id="gapi-target" nonce="ZwyB16KJtULOZNoDcssEvg==" src="https://apis.google.com/js/api.js" defer
+  <script id="gapi-target" nonce="wm2gCUE6ih&#x2B;KPop&#x2B;XAhz8g==" src="https://apis.google.com/js/api.js" defer
     async></script>
-  <script nonce="ZwyB16KJtULOZNoDcssEvg==" src="/static/assets/runtime.js?v=7a08f1d8193e6065c939"></script>
-  <script nonce="ZwyB16KJtULOZNoDcssEvg==" src="/static/assets/vendor.js?v=fecf3d4dd33c7dcc73c7"></script>
-  <script nonce="ZwyB16KJtULOZNoDcssEvg==" src="/static/assets/app.js?v=67b1f38934771ac40829"></script>
-    <script nonce="ZwyB16KJtULOZNoDcssEvg==" type="text/javascript">
+  <script nonce="wm2gCUE6ih+KPop+XAhz8g==" src="/static/assets/runtime.js?v=7a08f1d8193e6065c939"></script>
+  <script nonce="wm2gCUE6ih+KPop+XAhz8g==" src="/static/assets/vendor.js?v=fecf3d4dd33c7dcc73c7"></script>
+  <script nonce="wm2gCUE6ih+KPop+XAhz8g==" src="/static/assets/app.js?v=67b1f38934771ac40829"></script>
+    <script nonce="wm2gCUE6ih&#x2B;KPop&#x2B;XAhz8g==" type="text/javascript">
       window.kaggleStackdriverConfig = {
         key: 'AIzaSyA4eNqUdRRskJsCZWVz-qL655Xa5JEMreE',
         projectId: 'kaggle-161607',
@@ -128,7 +128,7 @@
     
 
 
-<script nonce="ZwyB16KJtULOZNoDcssEvg==" type="text/x-mathjax-config">
+<script nonce="wm2gCUE6ih&#x2B;KPop&#x2B;XAhz8g==" type="text/x-mathjax-config">
     MathJax.Hub.Config({
     "HTML-CSS": {
     preferredFont: "TeX",
@@ -161,7 +161,7 @@
     extensions: ["Safe.js"],
     });
 </script>
-<script type="text/javascript" nonce="ZwyB16KJtULOZNoDcssEvg==">
+<script type="text/javascript" nonce="wm2gCUE6ih&#x2B;KPop&#x2B;XAhz8g==">
   window.addEventListener("DOMContentLoaded", () => {
     const head = document.getElementsByTagName("head")[0];
     const lib = document.createElement("script");
