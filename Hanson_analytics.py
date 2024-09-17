@@ -172,7 +172,8 @@ def write_excel_data(folder_name, filename, data):
     file_path = pathlib.Path(folder_name).joinpath(filename)
     try:
         # Try opening the file and writing the data
-        data.to_excel(file_path)
+        with file_path.open('w', encoding='utf-8') as file:
+            file.write(data)
         logging.info(f'Data written to {file_path}') # Log the success
     except IOError as e:
         # Log the error
@@ -326,22 +327,34 @@ def main():
         'nba_json': 'nba.json'
     }
 
-    # Processed datasets based on type
-    for dataset, (data_type, url) in datasets.items():
-        folder_name = folder_names[data_type]
-        filename = filenames[dataset]
+    # Create folders using Hanson_project_setup module
+    result = HanPS.create_prefixed_folders(folder_names.values(), 'format-')
+    print(result)
+    
+    # Define the base directory relative to the script's location
+    base_dir = pathlib.Path(__file__).parent.joinpath('data')
+
+    # Full paths for each folder
+    full_paths = {key: base_dir.joinpath(folder) for key, folder in folder_names.items()}
+
+    # Fetch and write data for each dataset
+    for key, (data_type, url) in datasets.items():
+        folder_name = full_paths[data_type]
+        filename = filenames[key]
         if data_type == 'txt':
             fetch_and_write_txt_data(folder_name, filename, url)
-            process_txt_data(folder_name, filename, f'processed_{filename}')
+            process_txt_data(folder_name, filename, 'processed_' + filename)
         elif data_type == 'csv':
             fetch_and_write_csv_data(folder_name, filename, url)
-            process_csv_data(folder_name, filename, f'processed_{filename}')
+            process_csv_data(folder_name, filename, 'processed_' + filename)
         elif data_type == 'excel':
             fetch_and_write_excel_data(folder_name, filename, url)
-            process_excel_data(folder_name, filename, f'processed_{filename}')
+            process_excel_data(folder_name, filename, 'processed_' + filename)
         elif data_type == 'json':
             fetch_and_write_json_data(folder_name, filename, url)
-            process_json_data(folder_name, filename, f'processed_{filename}')
+            process_json_data(folder_name, filename, 'processed_' + filename)
+
+print("Hanson Analytics: Delivering Actionable Insights and automating data fetching and processing.")
 
 if __name__ == '__main__':
     main()
