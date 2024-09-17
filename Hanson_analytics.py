@@ -200,7 +200,7 @@ def process_excel_data(folder_name, input_filename, output_filename):
     
     try:
         # Try opening the file and reading the data
-        df = pd.read_excel(file_path)
+        df = pd.read_excel(file_path, engine='openpyxl')
         # Try processing the data with basic analysis
         num_rows = len(df)
         num_columns = len(df.columns)
